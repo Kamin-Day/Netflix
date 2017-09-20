@@ -2,7 +2,7 @@ psql postgres
 
 CREATE DATABASE netflix;
 
-CREATE TABLE videos(id SERIAL PRIMARY KEY, title VARCHAR, description VARCHAR, video VARCHAR, views, INTEGER);
+CREATE TABLE videos(id SERIAL PRIMARY KEY, title VARCHAR, description VARCHAR, video VARCHAR, views INTEGER);
 
 
 CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR, password VARCHAR);
