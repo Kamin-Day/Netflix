@@ -47,10 +47,13 @@ end
 def displayRandomOnLoad
 	
 	result = conn.exec("SELECT * FROM videos;").to_a
-	return '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + result[randomNum]["video"] +'" frameborder="0" allowfullscreen></iframe>'
+	return '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + result[randGet()]["video"] +'" frameborder="0" allowfullscreen></iframe>'
 end
 
-
+def randGet
+	num = Random.new
+	num.rand(1..50)
+end
 
 
 
