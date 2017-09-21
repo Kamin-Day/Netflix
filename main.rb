@@ -8,9 +8,9 @@ get '/' do
 end
 
 post '/login' do
-	# a = params["loginID"]
-	# b = params["passwordInput"]
-	# checkLogin(a, b)
+	loginName = params["loginID"]
+	loginPwd = params["passwordInput"]
+	checkLogin(loginName, loginPwd)
 
 end
 
