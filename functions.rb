@@ -104,3 +104,9 @@ def loadVideoInfo(video)
 
 end
 
+
+def displayVideoInfo(video)
+	conn = PGconn.open(:dbname => 'netflix')
+	result = conn.exec("SELECT title, description, views FROM videos WHERE video=#{video};").to_a
+	return result
+end

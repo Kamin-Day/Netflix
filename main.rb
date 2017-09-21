@@ -24,7 +24,7 @@ end
 #Loads a new video
 post '/load_video' do
 	videoSelection = params["video"]
-	loadVideoInfo(videoSelection)
+	info = displayVideoInfo(videoSelection)
 end
 
 get '/index' do

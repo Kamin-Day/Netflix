@@ -5,7 +5,7 @@ window.addEventListener("load", function(){
         videoLink[e].addEventListener("click", function(){
         event.preventDefault();
 		
-		videoSelection = event.target.href.split("/")[4];
+		videoSelection = event.target.href.split("/")[-1];
 		loadVideoToPage(videoSelection)
 		// var request = new XMLHttpRequest();
 		// request.open("POST", "/load_video?video=" + videoSelection);
@@ -22,13 +22,24 @@ window.addEventListener("load", function(){
 
 	var loadVideoToPage = function(video){
 		var videoPlayer = document.getElementsByTagName("iframe");
-		videoPlayer[0].src = videoPlayer[0].src = "https://www.youtube.com/embed/" + video;
-		
+		videoPlayer[0].src = "https://www.youtube.com/embed/" + video;
+		loadvideoInfo(video)
 
 	}
 // '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + result[randGet()]["video"] +'" frameborder="0" allowfullscreen></iframe>'
 
-	var loadVideo = function(event){
+	var loadVideoInfo = function(video){
+		var request = new XMLHttpRequest();
+		request.open("POST", "/load_video?video=" + video);
+		request.send();
+		result = request.addEventListener("load");
+		
+
+		send 'video' to ruby
+		get back the information about the video
+			Results
+
+
 		// event.preventDefault();
 		// event.target;
 		// debugger;
