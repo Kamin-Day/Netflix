@@ -18,3 +18,6 @@ conn = PGconn.open(:dbname => 'netflix')
 
 
  # id | title | description | video | views 
+ '
+ '
+ INSERT INTO users (name, password) VALUES('kamin', 'pw');
