@@ -9,20 +9,26 @@ conn = PGconn.open(:dbname => 'netflix')
 #takes in params of user name a and password b from params on a web form and searches the DB users table
 #for a matching entry.  
 def checkLogin (loginName , loginPwd)
-	conn = PGconn.open(:dbname => 'netflix')
-
+	conn = PGconn.open(:dbname => 'netflix')\
 	loginName = a
 	loginPwd = b
 	result = @conn.exec("SELECT * FROM users WHERE name=#{loginName};")
-
-
-	# result = @conn.exec("SELECT * FROM users WHERE name=#{loginName} AND password=#{loginPwd};")
 	return checkValidLogin(result, loginPwd)	
 end
 
 # Checks to see if the password entered mathes the password in the database
 def checkLoginMatch(result, loginName, loginPwd)
 	return result['password'] == loginPwd
+end
+
+# Checks to see if a user is logged in 
+# => Returns a true(logged in)/false(logged out) response
+def permitAccess
+	if session[:id] == nil
+		return false
+	else
+		return true
+	end
 end
 
 #Function that gathers all of the videos from the DB and adds HTML tags to the data to make an array of line items
@@ -82,6 +88,8 @@ def setSession(id)
 	end
 end
 
+#Fetches information from the DB on the user whos information matches the session ID
+#Returns an HTML string to display their user image on a web page
 def getUserImage
 	id = session[:id]
 	conn = PGconn.open(:dbname => 'netflix')
@@ -90,6 +98,9 @@ def getUserImage
 	#{result[0]["img"]}" alt="#{result[0]["name"]} profile image">'
 end
 
+
+#Fetches information from the DB on the user whos information matches the session ID
+#Returns an HTML string to display their user name on a web page
 def getUserName
 	id = session[:id]
 	conn = PGconn.open(:dbname => 'netflix')
@@ -97,6 +108,8 @@ def getUserName
 	return "<h1>#{result[0]['name']}</h1>"
 end
 
+# A seemingly completely useless function :D!!!!!!!!!!!!!!!!!!!!! lolz!
+#SOOPER DOOPER DOOD
 def loadVideoInfo(video)
 	conn = PGconn.open(:dbname => 'netflix')
 	result = conn.exec("SELECT * FROM users WHERE video=#{video};").to_a
@@ -104,9 +117,12 @@ def loadVideoInfo(video)
 
 end
 
-
+# Takes in a video code and fetches information about the video from the DB
+# Returns a string with a "/" delimiter containing the information from each field
 def displayVideoInfo(video)
 	conn = PGconn.open(:dbname => 'netflix')
-	result = conn.exec("SELECT title, description, views FROM videos WHERE video=#{video};").to_a
-	return result
+	result = conn.exec("SELECT * FROM videos WHERE video='#{video}';").to_a[0]
+	d = "/"
+	return result["title"] + d + result["description"] + d + result["video"] + d + result["views"]
 end
+
