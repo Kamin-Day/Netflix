@@ -2,12 +2,28 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="/style.css">
+ <script type="text/javascript" src="scripts.js"></script>
 
-	<title></title>
+	<title>YouFlix</title>
 </head>
 <body>
 
+
 <div style="float: left">
+	<div>
+	<%= getUserName %>
+	<%= getUserImage %>
+
+	<form action="/load_painting" method="POST"> 
+		<select name="Sort By">
+			<option value="A-Z">A-Z</option>
+			<option value="Views">Most Views</option>
+		</select>
+		<input type="submit" id="filter">
+	</form>
+
+	</div>
+
 <%= displayURLS %>
 </div>
 
