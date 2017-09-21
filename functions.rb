@@ -8,6 +8,8 @@ conn = PGconn.open(:dbname => 'netflix')
 #takes in params of user name a and password b from params on a web form and searches the DB users table
 #for a matching entry.  
 def checklogin (loginName , loginPwd)
+	conn = PGconn.open(:dbname => 'netflix')
+
 	loginName = a
 	loginPwd = b
 	result = @conn.exec("SELECT * FROM users WHERE name=#{loginName};")
@@ -25,6 +27,7 @@ end
 #Function that gathers all of the videos from the DB and adds HTML tags to the data to make an array of line items
 # containing links to videos with titles. Returns the output of a function which places the li elements into an ol
 def displayURLS
+	conn = PGconn.open(:dbname => 'netflix')
 	result = conn.exec("SELECT * FROM videos;").to_a
 	urls = []
 	result.each do |video|
@@ -45,7 +48,7 @@ end
 
 # displays a random video on page load
 def displayRandomOnLoad
-	
+	conn = PGconn.open(:dbname => 'netflix')
 	result = conn.exec("SELECT * FROM videos;").to_a
 	return '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + result[randGet()]["video"] +'" frameborder="0" allowfullscreen></iframe>'
 end
