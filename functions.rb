@@ -36,7 +36,7 @@ def displayURLS
 
 	urls = []
 	result.each do |video|
-		urls.push('<li><a href="https://www.youtube.com/watch?v=' + video["video"]+'">'+video['title']+'></li>')
+		urls.push('<li><a href="https://www.youtube.com/embed/' + video["video"]+'">'+video['title']+'></li>')
 	end
 	return outputURLS(urls)
 end
