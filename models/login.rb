@@ -1,21 +1,16 @@
+# Contains a group of functions which handle the log in process
+
 require 'rubygems'
 require 'bundler'
-
 Bundler.require
-
 require 'csv'
 
 enable :session 
-
-
 conn = PGconn.open(:dbname => 'netflix')
 
-#takes in params of user name a and password b from params on a web form and searches the DB users table
-#for a matching entry.  
+# Takes in params of user name a and password b from params on a web form and searches the DB users table for a matching entry.  
 def checkLogin (loginName , loginPwd)
 	conn = PGconn.open(:dbname => 'netflix')\
-	# loginName = a
-	# loginPwd = b
 	result = @conn.exec("SELECT * FROM users WHERE name=#{loginName};")
 	return checkValidLogin(result, loginPwd)	
 end
@@ -26,7 +21,7 @@ def checkLoginMatch(result, loginName, loginPwd)
 end
 
 # Checks to see if a user is logged in 
-# => Returns a true(logged in)/false(logged out) response
+# Returns a true(logged in)/false(logged out) response
 def permitAccess
 	if session[:id] == nil
 		return false
@@ -47,10 +42,7 @@ def returnID (username, password)
 	end
 end
 
-
-#take in the results of return id.
-# it id is a valid integer, it sets a session to the users id
-#else returns false
+# Take in the results of returnID. If it is a valid integer, it sets a session to the users id. Otherwise it returns false
 def setSession(id)
 	if id.class == Integer 
 		session[:id] = id
