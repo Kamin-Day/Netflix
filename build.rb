@@ -7,6 +7,8 @@ require 'bundler'
 
 Bundler.require
 
+require "csv"
+
 conn = PGconn.open(:dbname => 'netflix')
 
 
