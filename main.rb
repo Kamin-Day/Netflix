@@ -42,5 +42,5 @@ end
 # => If they are, loads the main page,
 # => If thery are not, they are redirected to the log in page
 get '/index' do
-  permitAccess ? erb :index : redirect '/'
+  permitAccess ? erb(:index) : redirect('/')
 end
