@@ -1,0 +1,14 @@
+<!-- TODO: Read about layouts in Sinatra. That will explain what's supposed to go in this empty file that Sumeet made without explanation. (When you figure it out, rename this file to remove the _ in the filename.) -->
+
+<!-- Main layout for all pages  -->
+
+<html>
+  <head>
+    <title><%= @title %></title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+ 	<script type="text/javascript" src="scripts.js"></script>
+  </head>
+  <body>
+        <%= yield %>
+  </body>
+</html>
