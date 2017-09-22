@@ -25,7 +25,8 @@ post '/login' do
 	# If the information matches a name/password pair, sets a session with the user id
    	if !setSession(returnID(loginName, loginPwd))
    		redirect '/'
-   	else redirect '/index'
+   	else
+      redirect '/index'
    	end
 
 end
