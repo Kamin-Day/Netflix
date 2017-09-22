@@ -11,8 +11,13 @@
 
 <div style="float: left">
 	<div>
-	<%= getUserName %>
-	<%= getUserImage %>
+	
+	<h1><%= getUserName %></h1>
+	
+	<% result = getUserImage %>
+	<%= '<img src="/images/'+ result["img"] + '" alt="' + result["name"]+ '">' %>
+
+	
 
 	<form action="/load_painting" method="POST"> 
 		<select name="Sort By">
@@ -25,7 +30,7 @@
 	</div>
 
 <!-- TODO: Show the actual loop through the URLs here, so that front-end can more easily customize the HTML. -->
-<%= displayURLS %>
+
 
 <%
 	html = ""
