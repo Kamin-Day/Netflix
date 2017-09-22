@@ -10,8 +10,8 @@ conn = PGconn.open(:dbname => 'netflix')
 #for a matching entry.  
 def checkLogin (loginName , loginPwd)
 	conn = PGconn.open(:dbname => 'netflix')\
-	loginName = a
-	loginPwd = b
+	# loginName = a
+	# loginPwd = b
 	result = @conn.exec("SELECT * FROM users WHERE name=#{loginName};")
 	return checkValidLogin(result, loginPwd)	
 end
@@ -36,6 +36,7 @@ end
 def displayURLS
 	conn = PGconn.open(:dbname => 'netflix')
 	result = conn.exec("SELECT * FROM videos;").to_a
+	binding.pry
 	urls = []
 	result.each do |video|
 		urls.push('<li><a class="listItem" href="https://www.youtube.com/embed/' + video["video"]+'">'+video['title']+'</a></li>')
