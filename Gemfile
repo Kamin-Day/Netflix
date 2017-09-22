@@ -1,11 +1,9 @@
-source 'https://rubygems.org' do
+source 'https://rubygems.org'
 
-	gem 'pry'
+gem 'pry'
 
-	gem 'rspec'
+gem 'rspec'
 
-	gem 'pg'
+gem 'pg'
 
-	gem 'sinatra'
-
-end
+gem 'sinatra'
