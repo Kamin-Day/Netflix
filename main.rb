@@ -1,5 +1,8 @@
-require "pry"
-require "sinatra"
+require 'rubygems'
+require 'bundler'
+
+Bundler.require
+
 require_relative 'functions.rb'
 enable :sessions
 

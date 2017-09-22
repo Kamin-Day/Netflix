@@ -1,8 +1,9 @@
 # At the top of every file, add a sentence or two describing what it is for. Simple explanations only! If the explanation isn't simple, it means the file should be split up into smaller (simpler) files.
 
-require "pry"
-require "csv"
-require "pg"
+require 'rubygems'
+require 'bundler'
+
+Bundler.require
 
 conn = PGconn.open(:dbname => 'netflix')
 

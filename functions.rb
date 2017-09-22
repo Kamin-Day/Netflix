@@ -1,6 +1,10 @@
+require 'rubygems'
+require 'bundler'
+
+Bundler.require
+
 require 'csv'
-require 'pg'
-require 'pry'
+
 enable :session 
 
 
