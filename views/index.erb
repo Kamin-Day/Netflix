@@ -18,7 +18,7 @@
 				<%
 					html = "<ul>"
 					getVideos.each do |video| 
-						html +=('<li><a class="listItem" href="https://www.youtube.com/embed/' + video["video"]+'"><h3>' +video['title']+'</h3></a></li>')
+						html +=('<li><h3><a class="listItem" href="https://www.youtube.com/embed/' + video["video"]+'">' +video['title']+'</a></h3></li>')
 					end
 					html += "</ul>"	%>
 				<%= html %>

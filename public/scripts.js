@@ -17,8 +17,9 @@ window.addEventListener("load", function(){
 	// takes in the new video code	
 	// Changes the src of the video player iframe element to reflect the new video url
 	var loadVideoToPage = function(video){
-		var videoPlayer = document.getElementsByTagName("iframe");
-		videoPlayer[0].src = "https://www.youtube.com/embed/" + video;
+		var videoPlayer = document.getElementsByClassName("youtube-player")[0]
+		
+		videoPlayer.dataset = video;
 
 	}
 

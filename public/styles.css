@@ -21,14 +21,13 @@ body {
 ul {
   list-style-type: none; }
 
-img {
+.profile img {
   border-radius: 50%;
-  height: 30%;
   width: 30%;
   margin-right: 10%; }
 
 .profile {
-  margin-bottom: 60px; }
+  margin-bottom: 30px; }
 
 [class*='col-'] {
   padding-right: 20px; }
@@ -238,7 +237,10 @@ a {
   z-index: 1;
   width: 50%;
   margin-left: 10%;
-  margin-top: 27%; }
+  margin-top: 27%; 
+  background-color: rgba(0, 0, 0, .5);
+  padding: 40px;
+}
   .text h1 {
     font-size: 3.5rem;
     font-weight: 600;
@@ -271,7 +273,17 @@ a {
 .videos-container {
   overflow: auto;
   flex-direction: column;
-  height: 60%; }
+  height: 65%; }
+  .videos-container ul {
+    margin: 0;
+    padding: 0;
+  }
+  .listItem {
+    color: #141414;
+  }
+  .listItem:hover {
+    color: #de1212;
+  }
 
 .youtube-player {
   position: relative;
