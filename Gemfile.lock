@@ -36,10 +36,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  pg!
-  pry!
-  rspec!
-  sinatra!
+  pg
+  pry
+  rspec
+  sinatra
 
 BUNDLED WITH
    1.15.4
