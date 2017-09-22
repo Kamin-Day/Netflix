@@ -1,4 +1,4 @@
-# Organize this into smaller "model" files.
+# TODO: Organize this into smaller "model" files.
 
 require 'rubygems'
 require 'bundler'

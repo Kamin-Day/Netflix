@@ -1,4 +1,4 @@
-# At the top of every file, add a sentence or two describing what it is for. Simple explanations only! If the explanation isn't simple, it means the file should be split up into smaller (simpler) files.
+# TODO: At the top of every file, add a sentence or two describing what it is for. Simple explanations only! If the explanation isn't simple, it means the file should be split up into smaller (simpler) files.
 
 require 'rubygems'
 require 'bundler'
