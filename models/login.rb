@@ -10,8 +10,8 @@ conn = PGconn.open(:dbname => 'netflix')
 
 # Takes in params of user name a and password b from params on a web form and searches the DB users table for a matching entry.  
 def checkLogin (loginName , loginPwd)
-	conn = PGconn.open(:dbname => 'netflix')\
-	result = @conn.exec("SELECT * FROM users WHERE name=#{loginName};")
+	conn = PGconn.open(:dbname => 'netflix')
+	result = conn.exec("SELECT * FROM users WHERE name=#{loginName};")
 	return checkValidLogin(result, loginPwd)	
 end
 
@@ -38,7 +38,8 @@ def returnID (username, password)
 	result = conn.exec("SELECT id FROM users WHERE name='#{username}' AND password='#{password}';").to_a
 	if result[0] == nil 
 		return false
-	else return result[0]["id"].to_i
+	else 
+		return result[0]["id"].to_i
 	end
 end
 
@@ -46,6 +47,7 @@ end
 def setSession(id)
 	if id.class == Integer 
 		session[:id] = id
-	else return false 
+	else 
+		return false 
 	end
 end
