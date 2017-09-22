@@ -1,3 +1,5 @@
+# Organize this into smaller "model" files.
+
 require 'rubygems'
 require 'bundler'
 

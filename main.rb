@@ -4,7 +4,13 @@ require 'bundler'
 Bundler.require
 
 require_relative 'functions.rb'
+
+# Write some Ruby here that loops through models/ and for each Ruby file
+# in that directory, it does `require_relative(...)` on that file.
+
 enable :sessions
+
+# Organize all of the route handlers below into small, easily-explained controller files.
 
 # Homepage
 get '/' do 
