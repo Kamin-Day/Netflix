@@ -1,14 +1,8 @@
-# TODO: At the top of every file, add a sentence or two describing what it is for. Simple explanations only! If the explanation isn't simple, it means the file should be split up into smaller (simpler) files.
-
-# TODO: Indentation is messed up. Fix please.
-
 # Build.rb is a file used to populate the videos table of the 'netflix' database with data which is read from a CSV file. 
 require 'rubygems'
 require 'bundler'
-
-Bundler.require
-
 require "csv"
+Bundler.require
 
 # Sets utility to open the correct database.
 conn = PGconn.open(:dbname => 'netflix')
