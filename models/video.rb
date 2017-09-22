@@ -16,10 +16,13 @@ def getVideos
 end
 
 # Returns an html string containing a random video url from the database
+#TODO : HTML access
 def displayRandomOnLoad
 	conn = PGconn.open(:dbname => 'netflix')
 	result = conn.exec("SELECT * FROM videos;").to_a
-	return '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + result[randGet()]["video"] +'" frameborder="0" allowfullscreen></iframe>'
+	@currentVideo = result[randGet()]
+	return @currentVideo
+	# return '<iframe width="854" height="480" src="https://www.youtube.com/embed/' + @currentVideo +'" frameborder="0" allowfullscreen></iframe>'
 end
 
 # Generates a random number from 0 to 49

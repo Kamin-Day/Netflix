@@ -13,6 +13,12 @@ end
 # If they are, loads the main page,
 # If thery are not, they are redirected to the log in page
 get '/index' do
-	@title = "Homepage"
-  permitAccess ? erb(:index) : redirect('/')
+	@currentVideo = displayRandomOnLoad()
+	
+	# @videoTitle =
+	# @videoViews =
+	# @videoURL =
+
+	@title = "YouFlix."
+    permitAccess ? erb(:index) : redirect('/')
 end

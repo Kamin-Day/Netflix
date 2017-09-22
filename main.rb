@@ -13,8 +13,10 @@ enable :sessions
 
 # Homepage
 get '/' do 
+
+
 	@title = "Login"
-	erb :login_form
+	erb :login
 end
 
 

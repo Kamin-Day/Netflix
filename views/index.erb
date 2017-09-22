@@ -1,67 +1,49 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="/style.css">
- <script type="text/javascript" src="scripts.js"></script>
 
-	<title>YouFlix</title>
-</head>
 <body>
- -->
-
-<div style="float: left">
-	<div>
-	
-	<h1><%= getUserName %></h1>
-	
-	<% result = getUserImage %>
-	<%= '<img src="/images/'+ result["img"] + '" alt="' + result["name"]+ '">' %>
-
-	
-
-	<form action="/load_painting" method="POST"> 
-		<select name="Sort By">
-			<option value="A-Z">A-Z</option>
-			<option value="Views">Most Views</option>
-		</select>
-		<input type="submit" id="filter">
-	</form>
-
+	<div class="site-container flex">
+		<div class="col-1-5 sidebar">
+			<h1 class="text-align-c">YouFlix<span>.</span></h1>
+			<div class="flex justify-c-c menu">
+				<a href="#">Settings</a>
+				<a href="#">Profile</a>
+				<a href="/logout">Logout</a>
+			</div>
+			<div class="profile flex align-i-c">
+				<div class="user-img"></div>
+				<% result = getUserImage %>
+				<%= '<img src="/images/'+ result["img"] + '" alt="' + result["name"]+ '">' %>
+				<h4><%= getUserName %></h4>
+			</div><!-- Not sure what's the best way to structure this. -->
+			<div class="videos-container flex">
+				<%
+					html = "<ul>"
+					getVideos.each do |video| 
+						html +=('<li><a class="listItem" href="https://www.youtube.com/embed/' + video["video"]+'"><h3>' +video['title']+'</h3></a></li>')
+					end
+					html += "</ul>"	%>
+				<%= html %>
+				</div>
+		</div>
+		<div class="col-4-5 video">
+			<div class="youtube-player" data-id="<%= @currentVideo['video']%>">
+				<div class="text" style="color:white">
+					<h1> <%= @currentVideo["title"] %> </h1>
+					<div>
+						<h3> <%= @currentVideo["views"] %> </h3>
+						<div class="flex align-i-c rating">
+							<i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i><i aria-hidden="true" class="fa fa-star"></i>
+							<h3>5.9/10</h3>
+							<h3>Comedy</h3>
+						</div>
+						<p><%= @currentVideo["description"] %></p>
+						<a class="video-button" href="">Play Video</a>
+						<a class="video-button-2" href="">Next Video</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-
-<!-- TODO: Show the actual loop through the URLs here, so that front-end can more easily customize the HTML. -->
-
-
-<%
-	html = ""
-	getVideos.each do |video|
-		html +=('<li><a class="listItem" href="https://www.youtube.com/embed/' + video["video"]+'">'+video['title']+'</a></li>')
-	end
-%>
-<%= html %>
-
-
-
-
-
-
-</div>
-
-<div style="float: right">
-		
-	<h1 class="video-title"> test </h1>
-	<h1 class="video-views"> test </h1>
-	<h1 class="video-description"> test </h1>
-
-	<!-- TODO: Bring the HTML here, instead of trapping it inside the Ruby function. -->
-	<%= displayRandomOnLoad %>
-
-
-
-</div>
-<!-- 
 </body>
-</html>
- -->
+
 
 

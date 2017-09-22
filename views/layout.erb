@@ -4,11 +4,20 @@
 
 <html>
   <head>
-    <title><%= @title %></title>
-    <link rel="stylesheet" type="text/css" href="/style.css">
- 	<script type="text/javascript" src="scripts.js"></script>
-  </head>
-  <body>
+	<title><%= @title %></title>
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+	<!-- Font Awesome CDN -->
+	<script src="https://use.fontawesome.com/f52b318aa2.js"></script>
+	<!-- Normalize -->
+	<link href="css/normalize.css" rel="stylesheet">
+	<!-- Custom Css -->
+	<link href="/styles.css" rel="stylesheet">
+	<!-- Javascript -->
+	<script src="/scripts.js" type="text/javascript"></script>
+	<script src="/video-scripts.js" type="text/javascript"></script>
+</head>
+
         <%= yield %>
-  </body>
+
 </html>
